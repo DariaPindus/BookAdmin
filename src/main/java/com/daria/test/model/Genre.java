@@ -1,5 +1,6 @@
 package com.daria.test.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,11 +11,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
-//@Entity
+import static javax.persistence.GenerationType.IDENTITY;
+
+@Entity
 @NoArgsConstructor
+@AllArgsConstructor
 public class Genre implements IEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = IDENTITY)
     @Getter @Setter private Long id;
 
     @Column(unique = true)

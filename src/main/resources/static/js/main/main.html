@@ -1,0 +1,86 @@
+<select class="custom-select" ng-model="vm.filter" ng-change="vm.filterChanged('genre')">
+    <option value="" selected>All Genres</option>
+    <option ng-repeat="option in vm.genres" value="{{option.id}}">{{option.name}}</option>
+</select>
+
+<select class="custom-select" ng-model="vm.filter" ng-change="vm.filterChanged('author')">
+    <option value="" selected>All Authors</option>
+    <option ng-repeat="option in vm.authors" value="{{option.id}}">{{option.lastName}} {{option.firstName}}</option>
+</select>
+
+<br/>
+<br/>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Author</th>
+        <th scope="col">Price</th>
+        <th scope="col" width="5%"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="book in vm.books" >
+        <th scope="row"><a ui-sref="book({bookId: book.id})">{{book.title}}</a></th>
+        <td>{{book.title}}</td>
+        <td>{{book.authors[0].lastName}} {{book.authors[0].firstName}}</td>
+        <td>{{book.price}}</td>
+        <td><a ui-sref="book({bookId: book.id})">edit</a></td>
+    </tr>
+    </tbody>
+</table>
+
+
+<!--
+
+<div id="wrapper">
+    &lt;!&ndash; Navigation &ndash;&gt;
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        &lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        &lt;!&ndash; Sidebar Menu Items - These collapse to the responsive navigation menu on small screens &ndash;&gt;
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li ng-click="vm.filterChanged('', '')">
+                    <i class="fa fa-fw fa-paper-plane-o" >All</i>
+                </li>
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-search"></i>Genres<i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <ul id="submenu-1" class="collapse">
+                        <li  ng-repeat="g in vm.genres" ><a ng-click="vm.filterChanged('genre', g.id)">{{g.name}}</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i>  Authors <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <ul id="submenu-2" class="collapse">
+                        <li ng-repeat="a in vm.authors" ng-click="vm.filterChanged('author', a.id)">{{a.name}}</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        &lt;!&ndash; /.navbar-collapse &ndash;&gt;
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row" id="main" >
+                <div class="col-sm-12 col-md-12 well" id="content">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>-->

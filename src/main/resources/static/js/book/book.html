@@ -1,0 +1,44 @@
+<form>
+    <div id="legend">
+        <legend class="">{{vm.book.name}}</legend>
+    </div>
+    <div class="form-group row">
+        <label class="control-label"  for="username">Title</label>
+        <div class="controls">
+            <input ng-show="vm.mode=='edit'" type="text" id="username" name="username"
+                   placeholder="" class="input-xlarge" ng-model="vm.book.title">
+            <p ng-show="vm.mode=='view'" class="help-block">{{vm.book.title}}</p>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label" for="desctiption">Description</label>
+        <div class="controls">
+            <input ng-show="vm.mode=='edit'" type="text" id="desctiption" name="username"
+                   placeholder="" class="input-xlarge" ng-model="vm.book.title">
+            <p ng-show="vm.mode=='view'" class="help-block">{{vm.book.title}}</p>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label" for="password">Price</label>
+        <div class="controls">
+            <input type="number" id="password"  min="0.10" max="10000.00" step="0.1" />
+            <p class="help-block">{{vm.book.price}}</p>
+        </div>
+    </div>
+    <div class="form-group row" ng-show="vm.mode=='edit'">
+        <!-- Button -->
+        <div class="controls">
+            <button class="btn btn-success" ng-click="vm.submitBook()">Submit</button>
+        </div>
+        <div class="controls">
+            <button class="btn btn-success" ng-click="vm.mode='view'">Cancel</button>
+        </div>
+    </div>
+
+    <div class="form-group row" ng-show="vm.mode=='view'">
+        <!-- Button -->
+        <div class="controls">
+            <button class="btn btn-success" ng-click="vm.mode='edit'">Edit</button>
+        </div>
+    </div>
+</form>

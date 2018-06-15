@@ -9,14 +9,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
-//@Entity
+import static javax.persistence.GenerationType.IDENTITY;
+
+@Entity
 @NoArgsConstructor
 public class Author implements IEntity {
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy = IDENTITY)
+    @Getter private Long id;
     @NotEmpty
     @Getter @Setter private String lastName;
     @Getter @Setter private String firstName;
 
+    public Author(@NotEmpty String lastName, String firstName) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+    }
 }

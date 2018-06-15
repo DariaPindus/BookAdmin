@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class RestResponse implements Serializable {
+public class RestResponse<T> implements Serializable {
     @Getter @Setter protected String status;
-    @Getter @Setter protected String content;
+    @Getter @Setter protected T content;
 }

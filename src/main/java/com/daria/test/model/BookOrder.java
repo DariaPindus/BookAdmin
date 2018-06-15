@@ -1,18 +1,29 @@
 package com.daria.test.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-//@Entity
+import static javax.persistence.GenerationType.IDENTITY;
+
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class BookOrder implements IEntity {
-
-    @Getter @Setter private Long id;
-    @NotEmpty
-    private User user;
-
-
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    @Getter private Long id;
+    @NotBlank
+    @Getter @Setter private String firstName;
+    @NotBlank
+    @Getter @Setter private String lastName;
+    @NotNull
+    @Embedded
+    @Getter @Setter private Address address;
 
 }
